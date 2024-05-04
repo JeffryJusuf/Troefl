@@ -18,7 +18,7 @@
                 <div class="p-5">
                   <h2 class="fw-bold mb-0">Avg. Score</h2>
                   <h1 class="display-1 my-5">N/A</h1>
-                  <button type="button" class="btn btn-lg btn-dark rounded mt-5 w-auto" data-bs-dismiss="modal">View Score History</button>
+                  <button type="button" class="btn btn-lg btn-dark rounded mt-5 w-auto" disabled>View Score History</button>
                 </div>
               </div>
         </div>
