@@ -36,3 +36,9 @@ Route::get('/discussion', function () {
         'title' => 'Discussion'
     ]);
 });
+
+Route::get('/profile', function () {
+    return view('profile', [
+        'title' => 'Profile'
+    ]);
+});
