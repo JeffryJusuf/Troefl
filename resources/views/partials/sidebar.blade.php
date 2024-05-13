@@ -24,7 +24,7 @@
         </a>
       </li>
       <li>
-        <a href="/discussion" class="nav-link text-white {{ ($title === 'Discussion') ? 'active' : '' }}">
+        <a href="/discussions" class="nav-link text-white {{ Request::is('discussions') ? 'active' : '' }}">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
           Discussion
         </a>
@@ -33,7 +33,7 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-2">
         <strong>mdo</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiscussionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,11 +32,9 @@ Route::get('/quiz', function () {
     ]);
 });
 
-Route::get('/discussion', function () {
-    return view('discussion', [
-        'title' => 'Discussion'
-    ]);
-});
+Route::get('/discussions', [DiscussionController::class, 'index']);
+
+Route::get('discussions/{discussion:slug}', [DiscussionController::class, 'show']);
 
 Route::get('/profile', function () {
     return view('profile', [
