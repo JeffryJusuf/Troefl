@@ -18,8 +18,13 @@ class Discussion extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function discussion()
+    {
+        return $this->belongsTo(Discussion::class, 'discussion_id');
+    }
+
     public function comments()
     {
-        return $this->hasMany(Discussion::class);
+        return $this->hasMany(Comment::class);
     }
 }

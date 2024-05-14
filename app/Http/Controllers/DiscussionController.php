@@ -19,7 +19,7 @@ class DiscussionController extends Controller
     public function show(Discussion $discussion)
     {
         return view('discussion', [
-            'title' => $discussion->title,
+            'title' => 'Discussions',
             'active' => 'discussions',
             'discussion' => $discussion
         ]);

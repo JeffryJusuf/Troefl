@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Discussion;
+use App\Models\Reply;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -26,5 +28,9 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create();
 
         Discussion::factory(50)->create();
+
+        Comment::factory(100)->create();
+
+        Reply::factory(75)->create();
     }
 }
