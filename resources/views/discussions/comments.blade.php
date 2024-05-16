@@ -12,7 +12,7 @@
                         <small class="opacity-50">{{ $comment->created_at->diffForHumans() }}</small>
                     </div>
                     <article class="fs-6 lh-sm">{!! $comment->body !!}</article>
-                    @include('replies', ['replies' => $comment->replies, 'comment_id' => $comment->id])
+                    @include('discussions.replies', ['replies' => $comment->replies, 'comment_id' => $comment->id])
                 </div>
             </div>
         </div>

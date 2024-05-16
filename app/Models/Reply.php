@@ -12,13 +12,15 @@ class Reply extends Model
     protected $guarded = ['id', 'comment_id', 'user_id'];
 
     protected $fillable = ['body'];
+
+    protected $with = ['user'];
     
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function reply()
+    public function comment()
     {
         return $this->belongsTo(Comment::class, 'comment_id');
     }

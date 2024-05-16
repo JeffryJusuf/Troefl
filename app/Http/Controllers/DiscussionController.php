@@ -9,7 +9,7 @@ class DiscussionController extends Controller
 {
     public function index()
     {
-        return view('discussions', [
+        return view('discussions.main', [
             'title' => 'Discussions',
             'active' => 'discussions',
             'discussions' => Discussion::all()
@@ -18,7 +18,9 @@ class DiscussionController extends Controller
 
     public function show(Discussion $discussion)
     {
-        return view('discussion', [
+        $discussion->load('comments.replies.user');
+
+        return view('discussions.discussion', [
             'title' => 'Discussions',
             'active' => 'discussions',
             'discussion' => $discussion

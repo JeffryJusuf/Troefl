@@ -13,14 +13,11 @@ class Discussion extends Model
 
     protected $fillable = ['title', 'body'];
 
+    protected $with = ['user'];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function discussion()
-    {
-        return $this->belongsTo(Discussion::class, 'discussion_id');
     }
 
     public function comments()
