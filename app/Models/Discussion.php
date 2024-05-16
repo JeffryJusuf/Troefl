@@ -11,8 +11,6 @@ class Discussion extends Model
     
     protected $guarded = ['id', 'user_id'];
 
-    protected $fillable = ['title', 'body'];
-
     protected $with = ['user'];
 
     public function scopeFilter($query)

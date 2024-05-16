@@ -8,8 +8,8 @@
             <button class="btn btn-dark rounded-0 rounded-end" type="submit">Search</button>
         </form>
         <div class="d-flex flex-column flex-md-row py-4 gap-4 align-items-center justify-content-start">
-            <div class="list-group list-group-flush w-75">
-                @if ($discussions->count())
+            @if ($discussions->count())
+                <div class="list-group list-group-flush w-75">
                     @foreach ($discussions as $discussion)
                         <a href="/discussions/{{ $discussion->slug }}"
                             class="list-group-item list-group-item-action d-flex border-dark-subtle gap-3 py-3"
@@ -23,10 +23,10 @@
                             </div>
                         </a>
                     @endforeach
-                @else
-                    <h1 class="text-center">No Thread Found</h1>
-                @endif
-            </div>
+                </div>
+            @else
+                <h1 class="text-center">No Discussion Found</h1>
+            @endif
         </div>
         <div class="container d-flex justify-content-center py-3">
             {{ $discussions->links() }}

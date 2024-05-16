@@ -14,13 +14,8 @@
 </head>
 
 <body>
-    <div class="d-flex">
-        <div class="position-fixed h-100">
-            @include('partials.sidebar')
-        </div>
-        <div class="p-5 w-100" style="margin-left: 280px">@yield('container')</div>
-        <div class="justify-content-center">@yield('sign')</div>
-    </div>
+    <div class="row justify-content-center align-items-center text-center text-light min-vh-100 bg-dark">
+        <div class="col-md-4">@yield('container')</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

@@ -11,8 +11,6 @@ class Reply extends Model
     
     protected $guarded = ['id', 'comment_id', 'user_id'];
 
-    protected $fillable = ['body'];
-
     protected $with = ['user'];
     
     public function user()

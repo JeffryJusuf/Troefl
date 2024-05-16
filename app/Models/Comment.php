@@ -11,8 +11,6 @@ class Comment extends Model
     
     protected $guarded = ['id', 'discussion_id', 'user_id'];
 
-    protected $fillable = ['body'];
-
     protected $with = ['user'];
     
     public function user()
