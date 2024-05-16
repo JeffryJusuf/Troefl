@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discussion;
+use Clockwork\Storage\Search;
 use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
 {
     public function index()
     {
-        return view('discussions.main', [
+        return view('discussions', [
             'title' => 'Discussions',
             'active' => 'discussions',
-            'discussions' => Discussion::all()
+            'discussions' => Discussion::latest()->filter()->paginate(15)
         ]);
     }
 
@@ -20,7 +21,7 @@ class DiscussionController extends Controller
     {
         $discussion->load('comments.replies.user');
 
-        return view('discussions.discussion', [
+        return view('discussion.index', [
             'title' => 'Discussions',
             'active' => 'discussions',
             'discussion' => $discussion

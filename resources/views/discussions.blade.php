@@ -3,9 +3,9 @@
 @section('container')
     <div class="d-flex flex-column">
         <h1 class="pb-5">Discussions</h1>
-        <form class="d-flex form-inline my-2 my-lg-0 w-75">
-            <input class="form-control mr-sm-2 rounded-0 rounded-start" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark my-2 my-sm-0 rounded-0 rounded-end" type="submit">Search</button>
+        <form action="/discussions" class="d-flex form-inline my-2 my-lg-0 w-75">
+            <input class="form-control rounded-0 rounded-start" type="text" placeholder="Search" name="search" value="{{ request('search') }}">
+            <button class="btn btn-dark rounded-0 rounded-end" type="submit">Search</button>
         </form>
         <div class="d-flex flex-column flex-md-row py-4 gap-4 align-items-center justify-content-start">
             <div class="list-group list-group-flush w-75">
@@ -23,8 +23,13 @@
                             </div>
                         </a>
                     @endforeach
+                @else
+                    <h1 class="text-center">No Thread Found</h1>
                 @endif
             </div>
+        </div>
+        <div class="container d-flex justify-content-center py-3">
+            {{ $discussions->links() }}
         </div>
     </div>
 @endsection

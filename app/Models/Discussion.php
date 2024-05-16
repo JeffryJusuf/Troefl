@@ -15,6 +15,14 @@ class Discussion extends Model
 
     protected $with = ['user'];
 
+    public function scopeFilter($query)
+    {
+        if(request('search'))
+        {
+            return $query->where('title', 'like', '%' . request('search') . '%')->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

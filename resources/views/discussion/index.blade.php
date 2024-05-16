@@ -13,5 +13,5 @@
             <article class="py-3 fs-5 lh-sm">{!! $discussion->body !!}</article>
         </div>
     </div>
-    @include('discussions.comments', ['comments' => $discussion->comments, 'discussion_id' => $discussion->id])
+    @include('discussion.comments', ['comments' => $discussion->comments, 'discussion_id' => $discussion->id])
 @endsection
