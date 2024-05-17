@@ -7,13 +7,18 @@
                     class="rounded-circle me-3">
                 <div class="row pe-5">
                     <div class="d-flex d-flex-column">
-                        <h6>{{ $reply->user->username }}</h6>
+                        <h6>{{ $reply->user->username }}
+                            @if($reply->user->is_admin)
+                                <small class="text-secondary"> &#40;Administator&#41;</small>
+                            @endif
+                        </h6>
                         <small class="mx-2 fw-bold">·</small>
                         <small class="opacity-50">{{ $reply->created_at->diffForHumans() }}</small>
                     </div>
-                    <article class="fs-6 lh-sm">{!! $reply->body !!}</article>
+                    <article class="fs-6 lh-sm mb-3">{!! $reply->body !!}</article>
                 </div>
             </div>
         </div>
     </div>
 @endforeach
+@include('discussion.addreply')

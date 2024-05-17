@@ -9,7 +9,7 @@ class Discussion extends Model
 {
     use HasFactory;
     
-    protected $guarded = ['id', 'user_id'];
+    protected $guarded = ['id'];
 
     protected $with = ['user'];
 

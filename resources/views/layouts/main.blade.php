@@ -19,7 +19,6 @@
             @include('partials.sidebar')
         </div>
         <div class="p-5 w-100" style="margin-left: 280px">@yield('container')</div>
-        <div class="justify-content-center">@yield('sign')</div>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

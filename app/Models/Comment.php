@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
     
-    protected $guarded = ['id', 'discussion_id', 'user_id'];
+    protected $guarded = ['id'];
 
     protected $with = ['user'];
     

@@ -30,11 +30,20 @@ Route::get('/material', function () {
     ]);
 });
 
-Route::get('/quiz', [ProfileController::class, 'index']);
+Route::get('/quiz', function () {
+    return view('quiz', [
+        'title' => 'Quiz'
+    ]);
+});
 
 Route::get('/discussions', [DiscussionController::class, 'index']);
+Route::get('discussions/show/{discussion:slug}', [DiscussionController::class, 'show']);
 
-Route::get('discussions/{discussion:slug}', [DiscussionController::class, 'show']);
+Route::get('/discussions/start-discussion', [DiscussionController::class, 'showCreatePage'])->middleware('auth');
+Route::post('/discussions/start-discussion', [DiscussionController::class, 'store']);
+Route::get('/generate-slug', [DiscussionController::class, 'generateSlug']);
+Route::post('coments', [DiscussionController::class, 'storeComment'])->name('comments.storeComment');
+Route::post('replies', [DiscussionController::class, 'storeReply'])->name('replies.storeReply');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 

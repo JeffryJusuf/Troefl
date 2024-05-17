@@ -44,7 +44,6 @@ class LoginController extends Controller
 
         request()->session()->regenerateToken();
 
-        return redirect()->intended('/');
-        // return redirect()->back();
+        return redirect()->back();
     }
 }

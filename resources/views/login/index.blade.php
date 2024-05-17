@@ -37,7 +37,7 @@
                     </div>
                 @enderror
             </div>
-            <button class="btn btn-primary w-100 py-2 my-3" type="submit">Login</button>
+            <button class="btn btn-secondary w-100 py-2 my-3" type="submit">Login</button>
             <small class="text-secondary">Need an account? 
                 <a href="/register" class="text-decoration-none">Register here</a>
             </small>

@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100 shadow-lg" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32">
             <use xlink:href="#bootstrap" />
@@ -9,40 +9,28 @@
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             <a href="/" class="nav-link text-light {{ $title === 'Home' ? 'active' : '' }}">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#home" />
-                </svg>
                 Home
             </a>
         </li>
         <li>
             <a href="/material" class="nav-link text-light {{ $title === 'Material' ? 'active' : '' }}">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2" />
-                </svg>
                 Learning Material
             </a>
         </li>
         <li>
             <a href="/quiz" class="nav-link text-light {{ $title === 'Quiz' ? 'active' : '' }}">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#table" />
-                </svg>
                 Quiz
             </a>
         </li>
         <li>
             <a href="/discussions" class="nav-link text-light {{ Request::is('discussions') ? 'active' : '' }}">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#grid" />
-                </svg>
                 Discussion
             </a>
         </li>
     </ul>
     <hr>
     @auth
-        <div class="dropdown">
+        <div class="dropdown ms-3">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="35" height="35"
@@ -63,6 +51,8 @@
             </ul>
         </div>
     @else
-        <a href="/login" class="nav-link text-light ms-4"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+    <div class="d-flex align-items-center" style="height: 35px">
+        <a href="/login" class="nav-link text-light ms-3">Login</a>
+    </div>
     @endauth
 </div>

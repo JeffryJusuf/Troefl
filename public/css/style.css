@@ -81,3 +81,8 @@
     color: #212529 !important;
     opacity: 0.0 !important;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #F0F8FF;
+    background-color: #6c757d;
+}

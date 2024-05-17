@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Discussion;
+use App\Models\Reply;
+use Illuminate\Support\Str;
 use Clockwork\Storage\Search;
 use Illuminate\Http\Request;
 
@@ -26,5 +29,73 @@ class DiscussionController extends Controller
             'active' => 'discussions',
             'discussion' => $discussion
         ]);
+    }
+
+    public function showCreatePage()
+    {
+        return view('discussion.create', [
+            'title' => 'Start a new Discussion',
+            'active' => 'discussions'
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:discussions',
+            'body' => 'required'
+        ]);
+
+        $validateData['user_id'] = auth()->user()->id;
+
+        Discussion::create($validateData);
+
+        return redirect('/discussions')->with('success', 'New post has been added!');
+    }
+
+    public function generateSlug(Request $request)
+    {
+        $slug = Str::slug($request->title);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Check for existing slugs in the database and modify if necessary
+        while (Discussion::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return response()->json(['slug' => $slug]);
+    }
+
+    public function storeComment(Request $request)
+    {
+        $input = $request->all();
+
+        $request->validate([
+            'body' => 'required'
+        ]);
+
+        $input['user_id'] = auth()->user()->id;
+
+        Comment::create($input);
+
+        return back();
+    }
+
+    public function storeReply(Request $request)
+    {
+        $input = $request->all();
+
+        $request->validate([
+            'body' => 'required'
+        ]);
+
+        $input['user_id'] = auth()->user()->id;
+
+        Reply::create($input);
+
+        return back();
     }
 }

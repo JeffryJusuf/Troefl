@@ -1,11 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="d-flex pb-5 border-bottom border-dark-subtle">
+    <div class="d-flex pb-5 border-bottom border-dark-subtle align-items-center">
         <img src="https://github.com/mdo.png" alt="" width="200" height="200" class="rounded-circle me-5">
-        <dl class="row">
-            <h1 class="my-3">{{ auth()->user()->username }}</h1>
-            <button class="btn btn-dark btn-sm h-25 my-3 rounded w-auto" type="submit">Edit Profile</button>
+        <dl class="row ps-0">
+            <h1 class="d-flex my-3 align-items-center">
+                {{ auth()->user()->username }}
+                @if($is_admin)
+                    <small class="text-secondary fs-3 ms-3">&#40;Administator&#41;</small>
+                @endif
+            </h1>
+            <div>
+                <a href="" class="btn btn-dark my-3 w-auto rounded">Edit Profile</a>
+            </div>
         </dl>
     </div>
     <div class="container pt-5">
@@ -23,7 +30,11 @@
             <div class="col-8">
                 <div class="shadow rounded text-center">
                     <div class="pt-5 pb-4 px-5">
-                        <h2 class="fw-bold">Discussion Created</h2>
+                        @if ($discussions->count() > 1)
+                            <h2 class="fw-bold">Discussions Created</h2>
+                        @else
+                            <h2 class="fw-bold">Discussion Created</h2>
+                        @endif
                         @if ($discussions->count())
                             <div class="list-group list-group-flush text-start py-3">
                                 @foreach ($discussions as $discussion)
@@ -38,14 +49,13 @@
                                         </div>
                                     </a>
                                 @endforeach
-                                {{-- <button type="button" class="btn btn-lg btn-dark rounded container d-flex justify-content-center w-50 mt-4">View All Discussions</button> --}}
                             </div>
                             <div class="container d-flex justify-content-center align-items-center pt-4">
                                 {{ $discussions->links() }}
                             </div>
                         @else
-                            <h1>No Discussion Created</h1>
-                            <button type="button" class="btn btn-lg btn-dark rounded container d-flex justify-content-center w-50 mt-4">Start a Discussion</button>
+                            <h1 class="my-5">No Discussion Created</h1>
+                            <button type="button" class="btn btn-lg btn-dark rounded container d-flex justify-content-center w-auto my-4">Start a new Discussion</button>
                         @endif
                     </div>
                 </div>
