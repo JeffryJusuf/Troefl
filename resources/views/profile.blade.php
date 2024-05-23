@@ -2,7 +2,11 @@
 
 @section('container')
     <div class="d-flex pb-5 border-bottom border-dark-subtle align-items-center">
-        <img src="https://github.com/mdo.png" alt="" width="200" height="200" class="rounded-circle me-5">
+        @if (auth()->user()->profile_picture)
+            <img src="{{ auth()->user()->profile_picture_url }}" alt="" width="200" height="200" class="rounded-circle me-5">
+        @else
+            <img src="https://github.com/mdo.png" alt="" width="200" height="200" class="rounded-circle me-5">
+        @endif
         <dl class="row ps-0">
             <h1 class="d-flex my-3 align-items-center">
                 {{ auth()->user()->username }}
@@ -11,7 +15,7 @@
                 @endif
             </h1>
             <div>
-                <a href="" class="btn btn-dark my-3 w-auto rounded">Edit Profile</a>
+                <a href="/profile/edit" class="btn btn-dark my-3 w-auto rounded">Edit Profile</a>
             </div>
         </dl>
     </div>

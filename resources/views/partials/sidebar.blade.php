@@ -33,8 +33,11 @@
         <div class="dropdown ms-3">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="35" height="35"
-                    class="rounded-circle me-2">
+                @if (auth()->user()->profile_picture)
+                    <img src="{{ auth()->user()->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-2">
+                @else
+                    <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-2">
+                @endif
                 <strong>{{ auth()->user()->username }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -13,6 +14,10 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded = ['id'];
+
+    protected $fillable = [
+        'username', 'password', 'profile_picture',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getProfilePictureUrlAttribute()
+    {
+        return $this->profile_picture ? Storage::url($this->profile_picture) : 'default/profile.png';
+    }
 
     public function discussions()
     {
