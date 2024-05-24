@@ -33,15 +33,22 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        $request->validate([
-            'username' => 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:3|max:30|unique:users,username',
+        $rules = [
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        ];
 
         $data = [];
 
-        if ($request->filled('password')) {
-            $request->validate([
+        if ($request->filled('username')) 
+        {
+            $rules = array_merge($rules, [
+                'username' => 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:3|max:30|unique:users,username,' . $user->id,
+            ]);
+        }
+
+        if ($request->filled('password')) 
+        {
+            $rules = array_merge($rules, [
                 'old_password' => 'required|string',
                 'password' => 'required|string|min:8|confirmed',
             ]);
@@ -55,11 +62,13 @@ class ProfileController extends Controller
             $user->password = Hash::make($request->input('password'));
         }
 
-        if ($request->filled('username')) {
+        if ($request->filled('username')) 
+        {
             $user->username = $request->input('username');
         }
 
-        if ($request->hasFile('profile_picture')) {
+        if ($request->hasFile('profile_picture')) 
+        {
             // Delete old profile picture if it exists
             if ($user->profile_picture) {
                 Storage::disk('public')->delete($user->profile_picture);

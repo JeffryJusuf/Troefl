@@ -9,7 +9,7 @@
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                        name="username" placeholder="{{ old('username', auth()->user()->username) }}">
+                        name="username" value="{{ auth()->user()->username }}">
                     @error('username')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -34,6 +34,7 @@
                     <label for="old_password" class="form-label">Password</label>
                     <input type="password" class="form-control @error('old_password') is-invalid @enderror" placeholder="Old Password" id="old_password"
                         name="old_password">
+                    <small class="text-secondary">Only required if you want to change your password</small>
                     @error('old_password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -58,9 +59,6 @@
         </div>
     </div>
 
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script> --}}
-
     <script>
         function previewImage() {
             const image = document.querySelector('#profile_picture');
@@ -75,59 +73,5 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     let cropper;
-        //     const profilePictureInput = document.getElementById('profile_picture');
-        //     const imagePreview = document.getElementById('image-preview');
-
-        //     profilePictureInput.addEventListener('change', (event) => {
-        //         const file = event.target.files[0];
-        //         if (file && file.type.startsWith('image/')) {
-        //             const reader = new FileReader();
-        //             reader.onload = (e) => {
-        //                 imagePreview.innerHTML =
-        //                     `<img id="cropper-image" src="${e.target.result}" class="img-fluid"/>`;
-        //                 const cropperImage = document.getElementById('cropper-image');
-        //                 cropper = new Cropper(cropperImage, {
-        //                     aspectRatio: 1,
-        //                     viewMode: 1,
-        //                     autoCropArea: 1,
-        //                 });
-        //             };
-        //             reader.readAsDataURL(file);
-        //         } else {
-        //             imagePreview.innerHTML = '';
-        //         }
-        //     });
-
-        //     document.querySelector('form').addEventListener('submit', (event) => {
-        //         event.preventDefault();
-        //         if (cropper) {
-        //             cropper.getCroppedCanvas().toBlob((blob) => {
-        //                 const formData = new FormData(event.target);
-        //                 // Remove the existing profile_picture field from FormData
-        //                 formData.delete('profile_picture');
-        //                 // Append the cropped image blob as profile_picture
-        //                 formData.append('profile_picture', blob, 'profile_picture.png');
-        //                 fetch('/profile/update', {
-        //                     method: 'POST',
-        //                     body: formData,
-        //                     headers: {
-        //                         'X-CSRF-TOKEN': document.querySelector(
-        //                             'meta[name="csrf-token"]').getAttribute('content')
-        //                     }
-        //                 }).then(response => response.json()).then(data => {
-        //                     if (data.success) {
-        //                         window.location.href = '/profile';
-        //                     } else {
-        //                         alert('Update failed');
-        //                     }
-        //                 }).catch(error => console.error('Error:', error));
-        //             });
-        //         } else {
-        //             event.target.submit();
-        //         }
-        //     });
-        // });
     </script>
 @endsection

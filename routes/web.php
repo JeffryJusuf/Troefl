@@ -49,7 +49,6 @@ Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
 Route::get('/profile/edit', [ProfileController::class, 'showUpdatePage'])->middleware('auth');
 Route::post('/profile/update', [ProfileController::class, 'update'])->middleware('auth');
-Route::post('/profile/upload', [ProfileController::class, 'upload'])->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
