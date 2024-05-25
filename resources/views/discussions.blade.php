@@ -17,7 +17,11 @@
                             <div class="d-flex gap-2 w-100 justify-content-between">
                                 <div>
                                     <h5 class="mb-0">{{ $discussion->title }}</h5>
-                                    <small class="mb-0 opacity-75">{{ $discussion->user->username }}</small>
+                                    <small class="mb-0 opacity-75">{{ $discussion->user->username }}
+                                        @if ($discussion->user->is_admin)
+                                            <small class="text-secondary"> &#40;Administator&#41;</small>
+                                        @endif
+                                    </small>
                                 </div>
                                 <small class="opacity-50 text-nowrap">{{ $discussion->created_at->diffForHumans() }}</small>
                             </div>

@@ -1,35 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
-    <style>
-        .custom-dropdown-toggle::after {
-            display: none; /* Hide the default arrow */
-        }
-
-        .custom-dropdown-toggle {
-            background: transparent; /* Make the button background transparent */
-            border: none; /* Remove border */
-            padding: 0; /* Remove padding */
-        }
-
-        .custom-dropdown-menu {
-            background-color: rgba(255, 255, 255, 0.8); /* Transparent background color */
-            width: auto; /* Adjust width to fit content */
-            min-width: 0; /* Remove any minimum width set by Bootstrap */
-            white-space: nowrap; /* Prevent text from wrapping */
-        }
-
-        .custom-dropdown-toggle:focus,
-        .custom-dropdown-toggle:active {
-            outline: none; /* Remove outline when the button is focused or active */
-            box-shadow: none; /* Remove any additional box-shadow */
-        }
-    </style>
-    
     <div class="d-flex border-bottom border-dark-subtle">
         @if ($discussion->user->profile_picture)
-            <img src="{{ $discussion->user->profile_picture_url }}" alt="" width="35" height="35"
-                class="rounded-circle me-3">
+            <div class="p-0">
+                <img src="{{ $discussion->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
+            </div>
         @else
             <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
         @endif
@@ -59,7 +35,7 @@
                                 <form action="/discussions/{{ $discussion->slug }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this discussion?')">Delete</button>
+                                    <button type="submit" class="dropdown-item custom-dropdown-item" onclick="return confirm('Are you sure you want to delete this discussion?')">Delete</button>
                                 </form>
                             </li>
                         </ul>

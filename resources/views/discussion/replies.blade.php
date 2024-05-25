@@ -4,7 +4,9 @@
             aria-current="true">
             <div class="d-flex">
                 @if ($reply->user->profile_picture)
+                <div class="p-0">
                     <img src="{{ $reply->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
+                </div>
                 @else
                     <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
                 @endif

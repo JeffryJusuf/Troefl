@@ -80,7 +80,7 @@ class ProfileController extends Controller
             $user->profile_picture = $imagePath;
         }
 
-        $user->update($data);
+        User::where('id', $user->id)->update($data);
 
         return redirect('/profile')->with('success', 'Profile updated successfully.');
     }
