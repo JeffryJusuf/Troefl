@@ -2,7 +2,11 @@
 
 @section('container')
     <div class="d-flex border-bottom border-dark-subtle">
-        <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
+        @if ($discussion->user->profile_picture)
+            <img src="{{ $discussion->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
+        @else
+            <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
+        @endif
         <div class="row pe-5">
             <div class="d-flex d-flex-column">
                 <h6>{{ $discussion->user->username }}

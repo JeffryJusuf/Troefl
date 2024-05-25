@@ -3,8 +3,11 @@
         <div class="list-group-item list-group-item-action d-flex border-top border-dark-subtle pt-3 gap-3"
             aria-current="true">
             <div class="d-flex">
-                <img src="https://github.com/mdo.png" alt="" width="35" height="35"
-                    class="rounded-circle me-3">
+                @if ($reply->user->profile_picture)
+                    <img src="{{ $reply->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
+                @else
+                    <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
+                @endif
                 <div class="row pe-5">
                     <div class="d-flex d-flex-column">
                         <h6>{{ $reply->user->username }}
@@ -21,4 +24,6 @@
         </div>
     </div>
 @endforeach
-@include('discussion.addreply')
+@auth
+    @include('discussion.addreply')
+@endauth

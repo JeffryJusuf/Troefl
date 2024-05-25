@@ -3,8 +3,11 @@
         <div class="list-group-item list-group-item-action d-flex border-top border-dark-subtle gap-3 pt-3"
             aria-current="true">
             <div class="d-flex">
-                <img src="https://github.com/mdo.png" alt="" width="35" height="35"
-                    class="rounded-circle me-3">
+                @if ($comment->user->profile_picture)
+                    <img src="{{ $comment->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
+                @else
+                    <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
+                @endif
                 <div class="row pe-5">
                     <div class="d-flex d-flex-column">
                         <h6>{{ $comment->user->username }}
