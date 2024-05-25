@@ -98,4 +98,15 @@ class DiscussionController extends Controller
 
         return back();
     }
+
+    public function destroy(Discussion $discussion)
+    {
+        // Only allow admins to delete discussions
+        if (!auth()->user()->is_admin) {
+            return redirect()->back()->with('error', 'Unauthorized action.');
+        }
+        
+        Discussion::destroy($discussion->id);
+        return redirect('/discussions')->with('success', 'Discussion has been deleted!');
+    }
 }

@@ -12,7 +12,7 @@
         </div>
         <div class="form-group mt-3">
             <div class="d-flex flex-row-reverse">
-                <button type="submit" class="btn btn-dark mb-2">Add Reply</button>
+                <button type="submit" class="btn btn-dark">Add Reply</button>
             </div>
         </div>
     </form>

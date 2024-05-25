@@ -37,7 +37,8 @@ Route::get('/quiz', function () {
 });
 
 Route::get('/discussions', [DiscussionController::class, 'index']);
-Route::get('discussions/show/{discussion:slug}', [DiscussionController::class, 'show']);
+Route::get('discussions/{discussion:slug}', [DiscussionController::class, 'show']);
+Route::delete('/discussions/{discussion:slug}', [DiscussionController::class, 'destroy'])->middleware('auth');
 
 Route::get('/discussions/start-discussion', [DiscussionController::class, 'showCreatePage'])->middleware('auth');
 Route::post('/discussions/start-discussion', [DiscussionController::class, 'store']);
