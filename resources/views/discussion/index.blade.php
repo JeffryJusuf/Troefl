@@ -32,7 +32,7 @@
                         </button>
                         <ul class="dropdown-menu custom-dropdown-menu text-center w-auto">
                             <li>
-                                <form action="/discussions/{{ $discussion->slug }}" method="POST">
+                                <form action="/discussions/show/{{ $discussion->slug }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="dropdown-item custom-dropdown-item" onclick="return confirm('Are you sure you want to delete this discussion?')">Delete</button>

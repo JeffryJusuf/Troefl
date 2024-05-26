@@ -27,9 +27,9 @@
                 {{-- <fieldset disabled>
                 </fieldset> --}}
                 <div class="mb-5">
-                    <textarea class="form-control @error('body') is-invalid @enderror" name="body" placeholder="Say Something" required value="{{ old('body') }}"></textarea>
-                    {{-- <input type="text" name="body" class="form-control @error('body') is-invalid @enderror"
-                        id="body" placeholder="Say Something" required value="{{ old('body') }}"> --}}
+                    {{-- <textarea class="form-control @error('body') is-invalid @enderror" name="body" placeholder="Say Something" required value="{{ old('body') }}"></textarea> --}}
+                    <input id="body" type="hidden" name="body">
+                    <trix-editor input="body"></trix-editor>
                     @error('body')
                         <div class="invalid-tooltip">
                             {{ $message }}
@@ -55,5 +55,9 @@
                 .then(response => response.json())
                 .then(data => {slug.value = data.slug;});
         });
+
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
     </script>
 @endsection
