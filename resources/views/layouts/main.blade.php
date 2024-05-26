@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="/css/style.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> {{-- for the three-dots font on discussion topic page --}}
+
+    {{-- Trix Editor --}}
+    {{-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script> --}}
 </head>
 
 <body>

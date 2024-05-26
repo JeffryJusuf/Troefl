@@ -11,7 +11,7 @@
             @if ($discussions->count())
                 <div class="list-group list-group-flush w-75">
                     @foreach ($discussions as $discussion)
-                        <a href="/discussions/{{ $discussion->slug }}"
+                        <a href="/discussions/show/{{ $discussion->slug }}"
                             class="list-group-item list-group-item-action d-flex border-dark-subtle gap-3 py-3"
                             aria-current="true">
                             <div class="d-flex gap-2 w-100 justify-content-between">
@@ -36,13 +36,15 @@
             {{ $discussions->links() }}
         </div>
     </div>
-    <div class="position-relative">
-        <div class="position-fixed bottom-0 end-0 pe-5 m-5">
-            <a href="/discussions/start-discussion" class="btn btn-dark rounded-circle shadow-lg p-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                </svg>
-            </a>
+    @auth
+        <div class="position-relative">
+            <div class="position-fixed bottom-0 end-0 pe-5 m-5">
+                <a href="/discussions/start-discussion" class="btn btn-dark rounded-circle shadow-lg p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
+    @endauth
 @endsection
