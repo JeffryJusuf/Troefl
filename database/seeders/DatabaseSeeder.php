@@ -36,21 +36,24 @@ class DatabaseSeeder extends Seeder
         Reply::factory(75)->create();
 
         // Generate questions with answers
-        Question::factory()
-            ->count(30) // Number of questions
-            ->create()
-            ->each(function ($question) {
-                // Create 4 answers for each question
-                $answers = Answer::factory()
-                    ->count(4)
-                    ->make();
+        // Question::factory()
+        //     ->count(30) // Number of questions
+        //     ->create()
+        //     ->each(function ($question) {
+        //         // Create 4 answers for each question
+        //         $answers = Answer::factory()
+        //             ->count(4)
+        //             ->make();
 
-                // Randomly choose one answer to be correct
-                $correctAnswerIndex = rand(0, 3);
-                $answers[$correctAnswerIndex]->is_correct = true;
+        //         // Randomly choose one answer to be correct
+        //         $correctAnswerIndex = rand(0, 3);
+        //         $answers[$correctAnswerIndex]->is_correct = true;
 
-                // Save answers to the question
-                $question->answers()->saveMany($answers);
-            });
+        //         // Save answers to the question
+        //         $question->answers()->saveMany($answers);
+        //     });
+        
+        $this->call(QuestionSeeder::class);
+        $this->call(AnswerSeeder::class);
     }
 }
