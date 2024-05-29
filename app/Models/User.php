@@ -49,6 +49,16 @@ class User extends Authenticatable
         return $this->profile_picture ? Storage::url($this->profile_picture) : 'default/profile.png';
     }
 
+    public function userResponse()
+    {
+        return $this->hasMany(UserResponse::class);
+    }
+
+    public function score()
+    {
+        return $this->hasMany(Score::class);
+    }
+
     public function discussions()
     {
         return $this->hasMany(Discussion::class);

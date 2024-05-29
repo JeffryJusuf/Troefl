@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRepliesTable extends Migration
+class CreateUserResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('user_responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');;
-            $table->text('body');
+            $table->foreignId('question_id')->references('id')->on('questions')->onDelete('cascade');;
+            $table->foreignId('answer_id')->references('id')->on('answers')->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('user_responses');
     }
 }

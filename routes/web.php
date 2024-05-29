@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -35,6 +36,10 @@ Route::get('/quiz', function () {
         'title' => 'Quiz'
     ]);
 });
+
+Route::get('/quiz', [QuizController::class, 'index'])->middleware('auth');
+Route::post('/quiz', [QuizController::class, 'submit'])->middleware('auth');
+Route::get('/quiz/result', [QuizController::class, 'result'])->middleware('auth');
 
 Route::get('/discussions', [DiscussionController::class, 'index']);
 Route::get('discussions/show/{discussion:slug}', [DiscussionController::class, 'show']);
