@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Score;
 use App\Models\UserResponse;
@@ -76,5 +77,118 @@ class QuizController extends Controller
         }
     
         return view('quiz.result', $result);
+    }
+
+    public function showManageQuiz()
+    {
+        return view('quiz.manage-quiz', [
+            'title' => 'Manage Quiz',
+            'active' => 'manage-quiz',
+            'questions' => Question::latest()->with('answers')->paginate(10)
+        ]);
+    }
+
+    public function showInsertForm()
+    {
+        return view('quiz.insert-question', [
+            'title' => 'Insert Question',
+            'active' => 'manage-quiz'
+        ]);
+    }
+
+    public function insertQuestion(Request $request)
+    {
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'correct_answer' => 'required|string|max:255',
+            'false_answers.*' => 'required|string|max:255',
+        ]);
+
+        $question = Question::create([
+            'question' => $request->input('question'),
+        ]);
+
+        // Insert the correct answer
+        Answer::create([
+            'question_id' => $question->id,
+            'answer' => $request->input('correct_answer'),
+            'is_correct' => true,
+        ]);
+
+        // Insert false answers
+        foreach ($request->input('false_answers') as $falseAnswer) {
+            Answer::create([
+                'question_id' => $question->id,
+                'answer' => $falseAnswer,
+                'is_correct' => false,
+            ]);
+        }
+
+        return redirect('/manage-quiz')->with('success', 'Question inserted successfully!');
+    }
+
+    public function showEditForm($id)
+    {
+        $question = Question::with('answers')->findOrFail($id);
+
+        return view('quiz.edit-question', [
+            'title' => 'Edit Question',
+            'active' => 'manage-quiz',
+            'question' => $question
+        ]);
+    }
+
+    public function updateQuestion(Request $request, $id)
+    {
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'correct_answer' => 'required|string|max:255',
+            'false_answers' => 'required|array|min:1',
+            'false_answers.*' => 'required|string|max:255',
+        ]);
+
+        $question = Question::findOrFail($id);
+        $question->update([
+            'question' => $request->question,
+        ]);
+
+        // Update correct answer
+        $correctAnswer = $question->answers()->where('is_correct', true)->first();
+        $correctAnswer->update([
+            'answer' => $request->correct_answer,
+        ]);
+
+        // Update false answers
+        $falseAnswers = $question->answers()->where('is_correct', false)->get();
+        foreach ($falseAnswers as $index => $falseAnswer) {
+            if (isset($request->false_answers[$index])) {
+                $falseAnswer->update([
+                    'answer' => $request->false_answers[$index],
+                ]);
+            } else {
+                $falseAnswer->delete();
+            }
+        }
+
+        // Add new false answers if any
+        if (count($request->false_answers) > count($falseAnswers)) {
+            for ($i = count($falseAnswers); $i < count($request->false_answers); $i++) {
+                Answer::create([
+                    'question_id' => $question->id,
+                    'answer' => $request->false_answers[$i],
+                    'is_correct' => false,
+                ]);
+            }
+        }
+
+        return redirect('/manage-quiz')->with('success', 'Question updated successfully!');
+    }
+
+    public function deleteQuestion($id)
+    {
+        $question = Question::findOrFail($id);
+        $question->delete();
+
+        return redirect('/manage-quiz')->with('success', 'Question deleted successfully!');
     }
 }

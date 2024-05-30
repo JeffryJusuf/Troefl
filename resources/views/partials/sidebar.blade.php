@@ -27,6 +27,15 @@
                 Discussion
             </a>
         </li>
+        @auth
+            @if (auth()->user()->is_admin)
+                <li>
+                    <a href="/manage-quiz" class="nav-link text-light {{ Request::is('manage-quiz') ? 'active' : '' }}">
+                        Manage Quiz
+                    </a>
+                </li>
+            @endif
+        @endauth
     </ul>
     <hr>
     @auth

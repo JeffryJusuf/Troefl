@@ -31,15 +31,17 @@ Route::get('/material', function () {
     ]);
 });
 
-Route::get('/quiz', function () {
-    return view('quiz', [
-        'title' => 'Quiz'
-    ]);
-});
-
 Route::get('/quiz', [QuizController::class, 'index'])->middleware('auth');
 Route::post('/quiz', [QuizController::class, 'submit'])->middleware('auth');
 Route::get('/quiz/result', [QuizController::class, 'result'])->middleware('auth');
+
+Route::get('/manage-quiz', [QuizController::class, 'showManageQuiz'])->middleware('auth');
+Route::get('/manage-quiz/insert-question', [QuizController::class, 'showInsertForm'])->middleware('auth');
+Route::post('/manage-quiz/insert-question', [QuizController::class, 'insertQuestion'])->middleware('auth');
+Route::get('/manage-quiz/edit-question/{id}', [QuizController::class, 'showEditForm'])->middleware('auth');
+Route::post('/manage-quiz/edit-question/{id}', [QuizController::class, 'updateQuestion'])->middleware('auth');
+Route::delete('/manage-quiz/delete-question/{id}', [QuizController::class, 'deleteQuestion'])->middleware('auth');
+
 
 Route::get('/discussions', [DiscussionController::class, 'index']);
 Route::get('discussions/show/{discussion:slug}', [DiscussionController::class, 'show']);
