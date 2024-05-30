@@ -133,15 +133,15 @@ class QuestionSeeder extends Seeder
         ]);
 
         Question::create([
-            'question' => '	 <p>John: "Hey, Sarah! How was your weekend?</p>"
+            'question' => '	 <p>John: "Hey, Sarah! How was your weekend?"</p>
 
             <p>Sarah: "It was great, John! I went hiking in the mountains with my family. The weather was perfect, and the view from the top was amazing."</p>
             
-            <p>John: "That sounds awesome! Did you do anything else?</p>"
+            <p>John: "That sounds awesome! Did you do anything else?"</p>
             
             <p>Sarah: "Yes, after hiking, we had a picnic by the lake. It was so relaxing to sit by the water and enjoy some homemade sandwiches and fresh fruit."</p>
             
-            <p>John: "Nice! I’m glad you had a good time. I spent most of my weekend reading a new mystery novel. It was really gripping!</p>"                                                                                                                                     <p>                  What did Sarah do after hiking?</p> ',
+            <p>John: "Nice! I’m glad you had a good time. I spent most of my weekend reading a new mystery novel. It was really gripping!"</p>                                                                                                                                     <p>                  What did Sarah do after hiking?</p> ',
         ]);
     }
 }
