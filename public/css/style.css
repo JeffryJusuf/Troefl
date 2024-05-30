@@ -1,43 +1,3 @@
-.form-signin .form-floating:focus-within {
-    z-index: 2;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.form-registration .form-floating:focus-within {
-    z-index: 2;
-}
-
-.form-registration input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-registration input[type="email"] {
-    margin-bottom: -1px;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-registration input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
 .page-item.active .page-link {
     z-index: 3;
     color: #f8f9fa !important;
@@ -82,9 +42,17 @@
     opacity: 0.0 !important;
 }
 
+.nav-link:hover {
+    background-color: #495057;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #F0F8FF;
-    background-color: #6c757d;
+    background-color: #495057;
+}
+
+.custom-dropdown-sidebar:active {
+    background-color: #495057;
 }
 
 .custom-dropdown-toggle::after {
@@ -112,4 +80,56 @@
 
 .custom-dropdown-item:active {
     background-color: #212529;
+}
+
+/* Custom radio button styles */
+.custom-radio .form-check-input {
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Adjust border opacity */
+}
+
+.custom-radio .form-check-input:checked {
+    background-color: #000; /* Change color when clicked */
+    border-color: #000; /* Ensure the border is also black */
+}
+
+/* Additional hover or focus effects if needed */
+.custom-radio .form-check-input:hover {
+    border-color: rgba(0, 0, 0, 0.7); /* Darker border on hover */
+}
+
+.custom-radio .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); /* Focus effect */
+}
+
+input[type="text"] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Custom focus effect for text boxes */
+input[type="text"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+input[type="password"] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+input[type="password"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+input[type="file"] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+input[type="file"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.custom-textarea {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.custom-textarea:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
 }

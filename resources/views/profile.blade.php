@@ -25,7 +25,7 @@
                 <div class="shadow text-center rounded">
                     <div class="p-5">
                         <h2 class="fw-bold mb-0">Avg. Score</h2>
-                        <h1 class="display-1 my-5">N/A</h1>
+                        <h1 class="display-1 my-5">{{-- add the average score here --}}</h1>
                         <button type="button" class="btn btn-lg btn-dark rounded mt-5 w-auto" disabled>View Score
                             History</button>
                     </div>

@@ -22,6 +22,14 @@
             display: none;
         }
     </style>
+    
+    <script>
+        // Check if page is loaded from cache and force reload
+        if (performance.navigation.type == 2) {
+            // Reload the page to prevent going back to cached version
+            location.reload(true);
+        }
+    </script>
 </head>
 
 <body>

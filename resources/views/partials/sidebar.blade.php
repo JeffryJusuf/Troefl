@@ -41,14 +41,14 @@
                 <strong>{{ auth()->user()->username }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                <li><a class="dropdown-item custom-dropdown-sidebar" href="/profile">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="dropdown-item">Sign out</button>
+                        <button type="submit" class="dropdown-item custom-dropdown-sidebar">Sign out</button>
                     </form>
                 </li>
             </ul>
