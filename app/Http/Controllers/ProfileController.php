@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Discussion;
+use App\Models\Score;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,12 +16,21 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $averageScore = $this->getAverageScore($user->id);
 
         return view('profile', [
             'title' => 'Profile',
-            'discussions' => Discussion::where('user_id', auth()->user()->id)->paginate(3),
-            'is_admin' => $user->is_admin
+            'discussions' => Discussion::where('user_id', auth()->user()->id)->latest()->paginate(3),
+            'is_admin' => $user->is_admin,
+            'averageScore' => $averageScore
         ]);
+    }
+
+    private function getAverageScore($userId)
+    {
+        return DB::table('scores')
+            ->where('user_id', $userId)
+            ->avg('score');
     }
 
     public function showUpdatePage()
@@ -83,5 +94,13 @@ class ProfileController extends Controller
         User::where('id', $user->id)->update($data);
 
         return redirect('/profile')->with('success', 'Profile updated successfully.');
+    }
+
+    public function showScore()
+    {
+        return view('profile.scores', [
+            'title' => 'Score',
+            'scores' => Score::where('user_id', auth()->user()->id)->latest()->paginate(10)
+        ]);
     }
 }

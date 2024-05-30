@@ -25,9 +25,8 @@
                 <div class="shadow text-center rounded">
                     <div class="p-5">
                         <h2 class="fw-bold mb-0">Avg. Score</h2>
-                        <h1 class="display-1 my-5">{{-- add the average score here --}}</h1>
-                        <button type="button" class="btn btn-lg btn-dark rounded mt-5 w-auto" disabled>View Score
-                            History</button>
+                        <h1 class="display-1 my-5">{{ number_format($averageScore, 2) }}</h1>
+                        <a href="/profile/scores" class="btn btn-lg btn-dark rounded w-auto" disabled>View All Scores</a>
                     </div>
                 </div>
             </div>

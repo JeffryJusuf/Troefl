@@ -33,6 +33,10 @@
     border-radius: 30% !important;
 }
 
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
 .pagination li {
     padding: 3px;
 }
