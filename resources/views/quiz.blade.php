@@ -8,7 +8,7 @@
             <div class="mb-5">
                 @foreach ($questions as $question)
                     <div class="shadow rounded p-3 mb-3">
-                        <label class="form-label">{{ $question->question }}</label>
+                        <label class="form-label">{!! $question->question !!}</label>
                         @foreach ($question->answers as $answer)
                             <div class="form-check custom-radio">
                                 <input class="form-check-input" type="radio" name="responses[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}" required>
