@@ -81,7 +81,7 @@ class DiscussionController extends Controller
 
         Comment::create($input);
 
-        return back();
+        return back()->with('success', 'Comment has been added!');
     }
 
     public function storeReply(Request $request)
@@ -96,7 +96,7 @@ class DiscussionController extends Controller
 
         Reply::create($input);
 
-        return back();
+        return back()->with('success', 'Reply has been added!');
     }
 
     public function destroy(Discussion $discussion)

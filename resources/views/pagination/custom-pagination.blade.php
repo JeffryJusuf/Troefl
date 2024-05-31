@@ -1,5 +1,4 @@
 @if ($paginator->hasPages())
-<nav aria-label="Page navigation example">
     <ul class="pagination justify-content-end">
         @if ($paginator->onFirstPage())
             <li class="page-item disabled">
@@ -8,7 +7,6 @@
         @else
             <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}"><span class="h5" aria-hidden="true">&laquo;</span></a></li>
         @endif
-      
         @foreach ($elements as $element)
             @if (is_string($element))
                 <li class="page-item disabled">{{ $element }}</li>
@@ -26,8 +24,7 @@
                     @endif
                 @endforeach
             @endif
-        @endforeach
-        
+        @endforeach       
         @if ($paginator->hasMorePages())
             <li class="page-item">
                 <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"><span class="h5" aria-hidden="true">&raquo;</span></a>

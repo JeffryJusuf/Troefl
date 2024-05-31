@@ -50,7 +50,7 @@ Route::delete('/discussions/show/{discussion:slug}', [DiscussionController::clas
 Route::get('/discussions/start-discussion', [DiscussionController::class, 'showCreatePage'])->middleware('auth');
 Route::post('/discussions/start-discussion', [DiscussionController::class, 'store']);
 Route::get('/generate-slug', [DiscussionController::class, 'generateSlug']);
-Route::post('coments', [DiscussionController::class, 'storeComment'])->name('comments.storeComment');
+Route::post('comments', [DiscussionController::class, 'storeComment'])->name('comments.storeComment');
 Route::post('replies', [DiscussionController::class, 'storeReply'])->name('replies.storeReply');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');

@@ -3,6 +3,12 @@
 @section('container')
     <div class="d-flex flex-column">
         <h1 class="pb-5">Discussions</h1>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form action="/discussions" class="d-flex form-inline my-2 my-lg-0 w-75">
             <input class="form-control rounded-0 rounded-start" type="text" placeholder="Search" name="search" value="{{ request('search') }}">
             <button class="btn btn-dark rounded-0 rounded-end" type="submit">Search</button>

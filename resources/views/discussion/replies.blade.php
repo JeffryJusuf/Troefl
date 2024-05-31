@@ -27,5 +27,5 @@
     </div>
 @endforeach
 @auth
-    @include('discussion.addreply')
+    @include('discussion.add-reply')
 @endauth

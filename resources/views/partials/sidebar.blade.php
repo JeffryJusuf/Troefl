@@ -63,8 +63,8 @@
             </ul>
         </div>
     @else
-    <div class="d-flex align-items-center" style="height: 35px">
-        <a href="/login" class="nav-link text-light ms-3">Login</a>
-    </div>
+        <div class="d-flex align-items-center" style="height: 35px">
+            <a href="/login" class="nav-link text-light ms-3">Login</a>
+        </div>
     @endauth
 </div>

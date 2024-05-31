@@ -5,21 +5,18 @@
         <h1 class="pb-5">Edit Question</h1>
         <form action="/manage-quiz/edit-question/{{ $question->id }}" method="POST">
             @csrf
-
             <div class="mb-3">
                 <input type="text" class="form-control @error('question') is-invalid @enderror" id="question" name="question" placeholder="Question" value="{{ old('question', $question->question) }}" required>
                 @error('question')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-
             <div class="mb-3">
                 <input type="text" class="form-control @error('correct_answer') is-invalid @enderror" id="correct_answer" name="correct_answer" placeholder="Correct Answer" value="{{ old('correct_answer', $question->answers->where('is_correct', true)->first()->answer) }}" required>
                 @error('correct_answer')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-
             <div id="false-answers-container">
                 @php 
                     $falseAnswers = old('false_answers', $question->answers->where('is_correct', false)->pluck('answer')->toArray());

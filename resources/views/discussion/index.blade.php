@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('container')
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="d-flex border-bottom border-dark-subtle">
         @if ($discussion->user->profile_picture)
             <div class="p-0">
@@ -45,7 +51,7 @@
         @endauth
     </div>
     @auth
-        @include('discussion.addcomment')
+        @include('discussion.add-comment')
     @else
         <div class="d-flex justify-content-center py-3">
             <a class="btn btn-dark" href="/login">Login to leave a comment</a>

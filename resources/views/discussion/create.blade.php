@@ -24,10 +24,7 @@
                         </div>
                     @enderror
                 </div>
-                {{-- <fieldset disabled>
-                </fieldset> --}}
                 <div class="mb-5">
-                    {{-- <textarea class="form-control @error('body') is-invalid @enderror" name="body" placeholder="Say Something" required value="{{ old('body') }}"></textarea> --}}
                     <input id="body" type="hidden" name="body">
                     <trix-editor input="body"></trix-editor>
                     @error('body')
@@ -42,6 +39,7 @@
             </form>
         </div>
     </div>
+    
     <script>
         const title = document.querySelector("#title");
         const slug = document.querySelector("#slug");
