@@ -1,6 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
-@section('container')
+@section('auth')
     <main class="form-registration">
         <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         <p class="h3 mb-3 fw-normal">Create Your Account</p>

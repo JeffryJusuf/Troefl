@@ -1,6 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
-@section('container')
+@section('auth')
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -15,7 +15,7 @@
     @endif
     <main class="form-signin">
         <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <p class="h3 mb-3 fw-normal">Login to <strong class="fw-bold">Troefl</strong></p>
+        <p class="h3 mb-3 fw-normal">Login to <strong class="fw-bold">TROEFL</strong></p>
         <form action="/login" method="POST" class="text-secondary">
             @csrf
             <div class="form-floating">

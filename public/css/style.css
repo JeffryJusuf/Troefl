@@ -47,16 +47,20 @@
 }
 
 .nav-link:hover {
-    background-color: #495057;
+    background-color: #6c757d;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #F0F8FF;
-    background-color: #495057;
+    background-color: #6c757d;
+}
+
+.custom-nav-link:hover{
+    background-color: transparent;
 }
 
 .custom-dropdown-sidebar:active {
-    background-color: #495057;
+    background-color: #6c757d;
 }
 
 .custom-dropdown-toggle::after {

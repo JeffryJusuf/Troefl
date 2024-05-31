@@ -1,9 +1,9 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100 shadow-lg" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32">
             <use xlink:href="#bootstrap" />
         </svg>
-        <span class="fs-4">Troefl</span>
+        <span class="fs-4">TROEFL</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
@@ -64,7 +64,7 @@
         </div>
     @else
         <div class="d-flex align-items-center" style="height: 35px">
-            <a href="/login" class="nav-link text-light ms-3">Login</a>
+            <a href="/login" class="nav-link text-light ms-3 custom-nav-link">Login</a>
         </div>
     @endauth
 </div>
