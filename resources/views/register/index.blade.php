@@ -2,7 +2,9 @@
 
 @section('auth')
     <main class="form-registration">
-        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <a href="/">
+            <img class="mb-4" src="/img/troefl-logo.png" alt="" width="100" height="100">
+        </a>
         <p class="h3 mb-3 fw-normal">Create Your Account</p>
         <form action="/register" method="POST" class="text-secondary">
             @csrf

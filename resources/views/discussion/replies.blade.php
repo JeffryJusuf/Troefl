@@ -8,7 +8,7 @@
                     <img src="{{ $reply->user->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-3">
                 </div>
                 @else
-                    <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-3">
+                    <img src="/img/troefl-profile-picture.png" alt="" width="35" height="35" class="rounded-circle me-3">
                 @endif
                 <div class="row pe-5">
                     <div class="d-flex d-flex-column">

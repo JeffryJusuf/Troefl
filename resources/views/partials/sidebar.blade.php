@@ -1,9 +1,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
-        <svg class="bi pe-none me-2" width="40" height="32">
-            <use xlink:href="#bootstrap" />
-        </svg>
-        <span class="fs-4">TROEFL</span>
+        <img src="/img/troefl-logo-text(1).png" alt="" width="200">
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
@@ -43,9 +40,9 @@
             <a href="#" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 @if (auth()->user()->profile_picture)
-                    <img src="{{ auth()->user()->profile_picture_url }}" alt="" width="35" height="35" class="rounded-circle me-2">
+                    <img src="{{ auth()->user()->profile_picture_url }}" alt="/img/troefl-profile-picture.png" width="35" height="35" class="rounded-circle me-2">
                 @else
-                    <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-2">
+                    <img src="/img/troefl-profile-picture.png" alt="" width="35" height="35" class="rounded-circle me-2">
                 @endif
                 <strong>{{ auth()->user()->username }}</strong>
             </a>

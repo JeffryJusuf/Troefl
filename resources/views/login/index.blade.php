@@ -14,8 +14,10 @@
         </div>
     @endif
     <main class="form-signin">
-        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <p class="h3 mb-3 fw-normal">Login to <strong class="fw-bold">TROEFL</strong></p>
+        <a href="/">
+            <img class="mb-4" src="/img/troefl-logo.png" alt="" width="100" height="100">
+        </a>
+        <p class="h3 mb-3 fw-normal">Login to <img src="/img/troefl-text.png" alt="" width="125"></p>
         <form action="/login" method="POST" class="text-secondary">
             @csrf
             <div class="form-floating">

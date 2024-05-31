@@ -4,8 +4,8 @@
     <section class="py-4 text-center container">
         <div class="row py-lg-5">
             @auth
-            <div class="col-lg-7 col-md-8 mx-auto">
-                    <h1 class="mt-3 mb-5">Welcome to <strong class="fw-bold">TROEFL</strong>, {{ auth()->user()->username }}</h1>
+                <div class="col-lg-7 col-md-8 mx-auto">
+                    <h1 class="mt-3 mb-5">Welcome to <img src="/img/troefl-text.png" alt="" width="170"> , {{ auth()->user()->username }}</h1>
                     <p class="lead py-5 border-top border-bottom">
                         Test & Improve your English Skill by Trying our Online English Test with TOEFL Standard.
                     </p>
@@ -27,9 +27,9 @@
                         </a>
                     </p>
                 </div>
-                @else
+            @else
                 <div class="col-lg-7 col-md-8 mx-auto">
-                    <h1 class="mt-0 mb-5">Welcome to <strong class="fw-bold">TROEFL</strong></h1>
+                    <h1 class="mt-0 mb-5">Welcome to <img src="/img/troefl-text.png" alt="" width="170"></h1>
                     <p class="lead pt-5 border-top">
                         Test & Improve your English Skill by Trying our Online English Test with TOEFL Standard.
                     </p>
@@ -52,8 +52,7 @@
                         </a>
                     </p>
                 </div>
-                @endauth
-            </div>
+            @endauth
         </div>
     </section>
 @endsection

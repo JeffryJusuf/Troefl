@@ -5,7 +5,7 @@
         @if (auth()->user()->profile_picture)
             <img src="{{ auth()->user()->profile_picture_url }}" alt="" width="200" height="200" class="rounded-circle me-5">
         @else
-            <img src="https://github.com/mdo.png" alt="" width="200" height="200" class="rounded-circle me-5">
+            <img src="/img/troefl-profile-picture.png" alt="" width="200" height="200" class="rounded-circle me-5">
         @endif
         <dl class="row ps-0">
             <h1 class="d-flex my-3 align-items-center">
