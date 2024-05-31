@@ -11,6 +11,8 @@ class Score extends Model
 
     protected $fillable = ['user_id', 'score'];
 
+    protected $with = ['user'];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

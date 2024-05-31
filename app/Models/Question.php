@@ -15,4 +15,9 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function scopeWithAnswers($query)
+    {
+        return $query->with('answers');
+    }
 }

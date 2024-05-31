@@ -12,13 +12,11 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $questions = Question::with('answers')->inRandomOrder()->take(20)->get();
+        $questions = Question::withAnswers()->inRandomOrder()->take(20)->get();
 
         foreach ($questions as $question) {
             $question->answers = $question->answers->shuffle();
         }
-
-        // return view('quiz.index', compact('questions'));
 
         return view('quiz', [
             'title' => 'Quiz',
@@ -33,7 +31,7 @@ class QuizController extends Controller
         $responses = [];
 
         foreach ($request->responses as $questionId => $answerId) {
-            $question = Question::find($questionId);
+            $question = Question::withAnswers()->find($questionId);
             $correctAnswer = $question->answers->where('is_correct', true)->first();
 
             if ($correctAnswer && $correctAnswer->id == $answerId) {
@@ -61,7 +59,7 @@ class QuizController extends Controller
             'title' => 'Quiz',
             'active' => 'quiz',
             'score' => $score,
-            'questions' => Question::with('answers')->find(array_keys($request->responses)),
+            'questions' => Question::withAnswers()->find(array_keys($request->responses)),
             'responses' => collect($request->responses)
         ];
     
@@ -84,7 +82,7 @@ class QuizController extends Controller
         return view('quiz.manage-quiz', [
             'title' => 'Manage Quiz',
             'active' => 'manage-quiz',
-            'questions' => Question::latest()->with('answers')->paginate(10)
+            'questions' => Question::latest()->withAnswers()->paginate(10)
         ]);
     }
 
@@ -129,7 +127,7 @@ class QuizController extends Controller
 
     public function showEditForm($id)
     {
-        $question = Question::with('answers')->findOrFail($id);
+        $question = Question::withAnswers()->findOrFail($id);
 
         return view('quiz.edit-question', [
             'title' => 'Edit Question',
