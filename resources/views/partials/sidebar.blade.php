@@ -1,6 +1,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
-        <img src="/img/troefl-logo-text(1).png" alt="" width="200">
+    <a href="/" class="d-flex align-items-center ms-3 mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
+        <img src="/img/troefl-logo-text.png" alt="" width="200">
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
