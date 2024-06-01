@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/profile" class="text-decoration-none text-secondary">Profile</a>
+            /
+            <a href="/profile/edit" class="text-decoration-none text-secondary">Edit Profile</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
         <h1 class="pb-5">Edit Profile</h1>
         <div class="col-lg-8">

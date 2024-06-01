@@ -22,7 +22,8 @@ class ProfileController extends Controller
             'title' => 'Profile',
             'discussions' => Discussion::where('user_id', auth()->user()->id)->latest()->paginate(3),
             'is_admin' => $user->is_admin,
-            'averageScore' => $averageScore
+            'averageScore' => $averageScore,
+            'active' => 'profile'
         ]);
     }
 
@@ -36,7 +37,8 @@ class ProfileController extends Controller
     public function showUpdatePage()
     {
         return view('profile/edit', [
-            'title' => 'Edit Profile'
+            'title' => 'Edit Profile',
+            'active' => 'profile'
         ]);
     }
 
@@ -100,7 +102,8 @@ class ProfileController extends Controller
     {
         return view('profile.scores', [
             'title' => 'Score',
-            'scores' => Score::where('user_id', auth()->user()->id)->latest()->paginate(10)
+            'scores' => Score::where('user_id', auth()->user()->id)->latest()->paginate(10),
+            'active' => 'profile'
         ]);
     }
 }

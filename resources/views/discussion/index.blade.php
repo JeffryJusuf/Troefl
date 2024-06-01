@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/discussions" class="text-decoration-none text-secondary">Discussions</a>
+            /
+            <a href="/discussions/{{ $discussion->slug }}" class="text-decoration-none text-secondary">{{ $discussion->title }}</a>
+        </small>
+    </div>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}

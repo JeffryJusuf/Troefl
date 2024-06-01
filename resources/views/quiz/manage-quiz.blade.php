@@ -1,14 +1,21 @@
 @extends('layouts.main')
 
 @section('container')
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/manage-quiz" class="text-decoration-none text-secondary">Manage Quiz</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
         <h1 class="pb-5">Manage Quiz</h1>
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
         @if ($questions->count())
             <div class="list-group list-group-flush w-75">
                 @foreach ($questions as $question)

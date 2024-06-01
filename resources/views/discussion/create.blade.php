@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/discussions" class="text-decoration-none text-secondary">Discussions</a>
+            /
+            <a href="/discussions/start-discussion" class="text-decoration-none text-secondary">Start a New Discussion</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
         <h1 class="pb-5">Start a New Discussion</h1>
         <div class="col-lg-8">

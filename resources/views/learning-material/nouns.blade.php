@@ -1,8 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/learning-material" class="text-decoration-none text-secondary">Learning Material</a>
+            /
+            <a href="/learning-material/nouns" class="text-decoration-none text-secondary">Nouns</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
-        <h1 class="pb-5">Nouns</h1>
+        <h1 class="pb-3">Nouns</h1>
         <article>
             Noun merupakan kata untuk menamai sesuatu seperti orang &#40;person&#41; , tempat &#40;place&#41; , benda &#40;thing&#41;, bahkan ide &#40;idea&#41;.<br>
             Contoh:

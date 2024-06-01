@@ -1,6 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/quiz" class="text-decoration-none text-secondary">Quiz</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
         <h1 class="pb-5">Quiz</h1>
         <form action="/quiz" method="POST" id="quiz-form">

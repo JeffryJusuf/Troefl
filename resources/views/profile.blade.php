@@ -1,6 +1,19 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/profile" class="text-decoration-none text-secondary">Profile</a>
+        </small>
+    </div>
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="d-flex pb-5 border-bottom border-dark-subtle align-items-center">
         @if (auth()->user()->profile_picture)
             <img src="{{ auth()->user()->profile_picture_url }}" alt="" width="200" height="200" class="rounded-circle me-5">

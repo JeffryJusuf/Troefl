@@ -1,14 +1,21 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/manage-quiz" class="text-decoration-none text-secondary">Manage Quiz</a>
+            /
+            <a href="/manage-quiz/insert-question" class="text-decoration-none text-secondary">Insert Quiz</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
         <h1 class="pb-5">Insert Question</h1>
         <form action="/manage-quiz/insert-question" method="POST">
             @csrf
             <div class="mb-3">
-                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required>
-                    {{ old('question') }}
-                </textarea>
+                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required></textarea>
                 @error('question')
                     <div class="invalid-tooltip">
                         {{ $message }}
@@ -63,7 +70,6 @@
             </div>
             <div class="d-flex flex-row-reverse">
                 <button type="submit" class="btn btn-dark">Insert Question</button>
-                <a href="/manage-quiz" class="btn btn-dark me-3">Back</a>
             </div>
         </form>
     </div>

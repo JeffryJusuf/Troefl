@@ -1,8 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="py-3" id="tenses">
+        <small>
+            <a href="/" class="text-decoration-none text-secondary">Home</a>
+            /
+            <a href="/learning-material" class="text-decoration-none text-secondary">Learning Material</a>
+            /
+            <a href="/learning-material/tenses" class="text-decoration-none text-secondary">Tenses</a>
+        </small>
+    </div>
     <div class="d-flex flex-column">
-        <h1 class="pb-5" id="tenses">Tenses</h1>
+        <h1 class="pb-3">Tenses</h1>
         <article>
             Tenses terbagi menjadi 3, yaitu: present, past, future. Present Tense digunakan untuk menunjukkan sesuatu yang terjadi pada saat ini atau bisa juga sebuah pernyataan umum. Past Tense untuk masa lampau. Future Tense untuk kejadian yang akan terjadi di masa mendatang.
             <ul>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <section class="py-4 text-center container">
+    <section class="py-5 text-center container">
         <div class="row py-lg-5">
             @auth
                 <div class="col-lg-7 col-md-8 mx-auto">
