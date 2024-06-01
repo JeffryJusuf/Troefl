@@ -35,7 +35,7 @@
                 </div>
                 <div class="mb-5">
                     <input id="body" type="hidden" name="body">
-                    <trix-editor input="body"></trix-editor>
+                    <trix-editor input="body" placeholder="Say something..."></trix-editor>
                     @error('body')
                         <div class="invalid-tooltip">
                             {{ $message }}
