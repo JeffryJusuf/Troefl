@@ -6,7 +6,9 @@
         <form action="/manage-quiz/insert-question" method="POST">
             @csrf
             <div class="mb-3">
-                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required value="{{ old('question') }}"></textarea>
+                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required>
+                    {{ old('question') }}
+                </textarea>
                 @error('question')
                     <div class="invalid-tooltip">
                         {{ $message }}

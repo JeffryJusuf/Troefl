@@ -21,13 +21,29 @@ use GuzzleHttp\Middleware;
 
 Route::get('/', function () {
     return view('home', [
-        'title' => 'Home'
+        'title' => 'Home',
+        'active' => 'home'
     ]);
 });
 
-Route::get('/material', function () {
-    return view('material', [
-        'title' => 'Material'
+Route::get('/learning-material', function () {
+    return view('learning-material', [
+        'title' => 'Learning Material',
+        'active' => 'learning-material'
+    ]);
+});
+
+Route::get('/learning-material/nouns', function () {
+    return view('learning-material.nouns', [
+        'title' => 'Learning Material: Nouns',
+        'active' => 'learning-material'
+    ]);
+});
+
+Route::get('/learning-material/tenses', function () {
+    return view('learning-material.tenses', [
+        'title' => 'Learning Material: Tenses',
+        'active' => 'learning-material'
     ]);
 });
 

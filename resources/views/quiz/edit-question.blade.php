@@ -6,7 +6,9 @@
         <form action="/manage-quiz/edit-question/{{ $question->id }}" method="POST">
             @csrf
             <div class="mb-3">
-                <input type="text" class="form-control @error('question') is-invalid @enderror" id="question" name="question" placeholder="Question" value="{{ old('question', $question->question) }}" required>
+                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Question" required>
+                    {{ old('question', $question->question) }}
+                </textarea>
                 @error('question')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

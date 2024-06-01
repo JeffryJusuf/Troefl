@@ -5,29 +5,29 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="/" class="nav-link text-light {{ $title === 'Home' ? 'active' : '' }}">
+            <a href="/" class="nav-link text-light {{ $active === 'home' ? 'active' : '' }}">
                 Home
             </a>
         </li>
         <li>
-            <a href="/material" class="nav-link text-light {{ $title === 'Material' ? 'active' : '' }}">
+            <a href="/learning-material" class="nav-link text-light {{ $active === 'learning-material' ? 'active' : '' }}">
                 Learning Material
             </a>
         </li>
         <li>
-            <a href="/quiz" class="nav-link text-light {{ $title === 'Quiz' ? 'active' : '' }}">
+            <a href="/quiz" class="nav-link text-light {{ $active === 'quiz' ? 'active' : '' }}">
                 Quiz
             </a>
         </li>
         <li>
-            <a href="/discussions" class="nav-link text-light {{ Request::is('discussions') ? 'active' : '' }}">
+            <a href="/discussions" class="nav-link text-light {{ $active === 'discussions' ? 'active' : '' }}">
                 Discussion
             </a>
         </li>
         @auth
             @if (auth()->user()->is_admin)
                 <li>
-                    <a href="/manage-quiz" class="nav-link text-light {{ Request::is('manage-quiz') ? 'active' : '' }}">
+                    <a href="/manage-quiz" class="nav-link text-light {{ $active === 'manage-quiz' ? 'active' : '' }}">
                         Manage Quiz
                     </a>
                 </li>

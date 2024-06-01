@@ -2,7 +2,9 @@
     <form method="post" action="{{ route('replies.storeReply') }}">
         @csrf
         <div class="form-group">
-            <textarea class="form-control @error('body') is-invalid @enderror custom-textarea" name="body" placeholder="Leave a Reply" required value="{{ old('body') }}"></textarea>
+            <textarea class="form-control @error('body') is-invalid @enderror custom-textarea" name="body" placeholder="Leave a Reply" required>
+                {{ old('body') }}
+            </textarea>
             @error('body')
                 <div class="invalid-tooltip">
                     {{ $message }}
