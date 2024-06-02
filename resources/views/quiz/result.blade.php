@@ -30,7 +30,7 @@
                         $bgColorClass = $isCorrect ? 'bg-success' : 'bg-danger';
                     @endphp
                     <tr>
-                        <td class="{{ $bgColorClass }} text-white">{{ $question->question }}</td>
+                        <td class="{{ $bgColorClass }} text-white">{!! $question->question !!}</td>
                         <td class="{{ $bgColorClass }} text-white">{{ $userAnswer }}</td>
                         <td class="{{ $bgColorClass }} text-white">{{ $correctAnswer }}</td>
                     </tr>
