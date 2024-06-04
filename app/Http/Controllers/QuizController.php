@@ -59,7 +59,7 @@ class QuizController extends Controller
             'title' => 'Quiz',
             'active' => 'quiz',
             'score' => $score,
-            'questions' => Question::withAnswers()->find(array_keys($request->responses)),
+            'questions' => array_keys($request->responses),
             'responses' => collect($request->responses)
         ];
     
@@ -69,12 +69,24 @@ class QuizController extends Controller
     public function result()
     {
         $result = session('result');
-    
+
         if (!$result) {
             return redirect('/quiz');
         }
     
-        return view('quiz.result', $result);
+        // Fetch questions in the same order as stored in the session
+        $questionIds = $result['questions'];
+        $questions = Question::withAnswers()->find($questionIds)->sortBy(function ($question) use ($questionIds) {
+            return array_search($question->id, $questionIds);
+        });
+    
+        return view('quiz.result', [
+            'title' => $result['title'],
+            'active' => $result['active'],
+            'score' => $result['score'],
+            'questions' => $questions,
+            'responses' => $result['responses']
+        ]);
     }
 
     public function showManageQuiz()
