@@ -13,17 +13,28 @@
         <form action="/quiz" method="POST" id="quiz-form">
             @csrf
             <div class="mb-5">
-                @foreach ($questions as $question)
+                @foreach ($questions as $index => $question)
                     <div class="shadow rounded p-3 mb-3">
-                        <label class="form-label">{!! $question->question !!}</label>
-                        @foreach ($question->answers as $answer)
-                            <div class="form-check custom-radio">
-                                <input class="form-check-input" type="radio" name="responses[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}" required>
-                                <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                    {{ $answer->answer }}
-                                </label>
+                        <div class="d-flex">
+                            <div class="d-flex align-items-start">
+                                <span class="me-2">
+                                    {{ $index + 1 }}.
+                                </span>
                             </div>
-                        @endforeach
+                            <div>
+                                <label class="form-label">{!! $question->question !!}</label>
+                            </div>
+                        </div>
+                        <div class="ms-4">
+                            @foreach ($question->answers as $answer)
+                                <div class="form-check custom-radio">
+                                    <input class="form-check-input" type="radio" name="responses[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}" required>
+                                    <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                        {{ $answer->answer }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 @endforeach
             </div>

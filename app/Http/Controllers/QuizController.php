@@ -29,6 +29,7 @@ class QuizController extends Controller
     {
         $score = 0;
         $responses = [];
+        $questionsOrder = array_keys($request->responses);
 
         foreach ($request->responses as $questionId => $answerId) {
             $question = Question::withAnswers()->find($questionId);
@@ -59,7 +60,8 @@ class QuizController extends Controller
             'title' => 'Quiz',
             'active' => 'quiz',
             'score' => $score,
-            'questions' => array_keys($request->responses),
+            'questionsOrder' => $questionsOrder,
+            'questions' => Question::withAnswers()->find($questionsOrder),
             'responses' => collect($request->responses)
         ];
     
@@ -75,15 +77,15 @@ class QuizController extends Controller
         }
     
         // Fetch questions in the same order as stored in the session
-        $questionIds = $result['questions'];
-        $questions = Question::withAnswers()->find($questionIds)->sortBy(function ($question) use ($questionIds) {
-            return array_search($question->id, $questionIds);
+        $questions = $result['questions']->sortBy(function ($question) use ($result) {
+            return array_search($question->id, $result['questionsOrder']);
         });
     
         return view('quiz.result', [
             'title' => $result['title'],
             'active' => $result['active'],
             'score' => $result['score'],
+            'questionsOrder' => $result['questionsOrder'],
             'questions' => $questions,
             'responses' => $result['responses']
         ]);

@@ -16,20 +16,23 @@
         <table class="table mb-5">
             <thead>
                 <tr>
-                    <th>Question</th>
-                    <th>Your Answer</th>
-                    <th>Correct Answer</th>
+                    <th class="col-sm-1">#</th>
+                    <th class="col">Question</th>
+                    <th class="col-sm">Your Answer</th>
+                    <th class="col-sm">Correct Answer</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($questions as $question)
-                    @php
-                        $userAnswer = $responses[$question->id] ? $question->answers->find($responses[$question->id])->answer : 'No answer';
-                        $correctAnswer = $question->answers->where('is_correct', true)->first()->answer;
-                        $isCorrect = $userAnswer === $correctAnswer;
-                        $bgColorClass = $isCorrect ? 'bg-success' : 'bg-danger';
-                    @endphp
+                @foreach ($questionsOrder as $index => $questionId)
+                @php
+                    $question = $questions->where('id', $questionId)->first();
+                    $userAnswer = $responses[$questionId] ? $question->answers->find($responses[$questionId])->answer : 'No answer';
+                    $correctAnswer = $question->answers->where('is_correct', true)->first()->answer;
+                    $isCorrect = $userAnswer === $correctAnswer;
+                    $bgColorClass = $isCorrect ? 'bg-success' : 'bg-danger';
+                @endphp
                     <tr>
+                        <td class="{{ $bgColorClass }} text-white">{{ $index + 1 }}</td>
                         <td class="{{ $bgColorClass }} text-white">{!! $question->question !!}</td>
                         <td class="{{ $bgColorClass }} text-white">{{ $userAnswer }}</td>
                         <td class="{{ $bgColorClass }} text-white">{{ $correctAnswer }}</td>
