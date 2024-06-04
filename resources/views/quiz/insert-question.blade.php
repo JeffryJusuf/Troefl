@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex flex-row-reverse">
+            <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-secondary mb-5" id="add-false-answer">Add More False Answer</button>
             </div>
             <div class="d-flex flex-row-reverse">
