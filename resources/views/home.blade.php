@@ -10,7 +10,7 @@
                         Test & Improve your English Skill by Trying our Online English Test with TOEFL Standard.
                     </p>
                     <p class="mt-5">
-                        <a href="/material" class="btn btn-lg btn-secondary">
+                        <a href="/learning-material" class="btn btn-lg btn-secondary">
                             <small class="fs-6">
                                 Learn the Basics
                             </small>
