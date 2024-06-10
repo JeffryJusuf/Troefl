@@ -42,7 +42,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
         $user = Auth::user();
 
@@ -50,21 +50,15 @@ class ProfileController extends Controller
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
-        $data = [];
-
         if ($request->filled('username')) 
         {
-            $rules = array_merge($rules, [
-                'username' => 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:3|max:30|unique:users,username,' . $user->id,
-            ]);
+            $rules['username'] = 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:3|max:30|unique:users,username,' . $user->id;
         }
 
         if ($request->filled('password')) 
         {
-            $rules = array_merge($rules, [
-                'old_password' => 'required|string',
-                'password' => 'required|string|min:8|confirmed',
-            ]);
+            $rules['old_password'] = 'required|string';
+            $rules['password'] = 'required|string|min:8|confirmed';
 
             // Check if the old password matches
             if (!Hash::check($request->input('old_password'), $user->password)) {
@@ -93,7 +87,9 @@ class ProfileController extends Controller
             $user->profile_picture = $imagePath;
         }
 
-        User::where('id', $user->id)->update($data);
+        $user->save();
+        // $data = $request->validate($rules);
+        // User::where('id', $user->id)->update($data);
 
         return redirect('/profile')->with('success', 'Profile updated successfully.');
     }
