@@ -1,83 +1,27 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="py-3">
-        <small>
-            <a href="/" class="text-decoration-none text-secondary">Home</a>
-            /
-            <a href="/quiz" class="text-decoration-none text-secondary">Quiz</a>
-        </small>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-7 col-md-8 mx-auto">
+            <h1 class="mt-0 mb-5">Disclaimer</h1>
+            <p class="lead py-5 border-top border-bottom">
+                This quiz is purely for learning/training purpose and does not represent an official TOEFL test. We do not guarantee you will get a good result on the actual TOEFL test if you get a perfect score on our quiz.
+            </p>
+            @auth
+                <p class="mt-5">
+                    <a href="/quiz" class="btn btn-lg btn-secondary mx-1">
+                        <small class="fs-6">
+                            I understand
+                        </small>
+                    </a>
+                </p>
+            @else
+                <p class="lead py-3">
+                    You need to be <a href="/login" class="text-decoration-none">signed in</a> to use this feature.
+                </p>
+            @endauth
+        </div>
     </div>
-    <div class="d-flex flex-column">
-        <h1 class="pb-5">Quiz</h1>
-        <form action="/quiz" method="POST" id="quiz-form">
-            @csrf
-            <div class="mb-5">
-                @foreach ($questions as $index => $question)
-                    <div class="shadow rounded p-3 mb-3">
-                        <div class="d-flex">
-                            <div class="d-flex align-items-start">
-                                <span class="me-2">
-                                    {{ $index + 1 }}.
-                                </span>
-                            </div>
-                            <div>
-                                <label class="form-label">{!! $question->question !!}</label>
-                            </div>
-                        </div>
-                        <div class="ms-4">
-                            @foreach ($question->answers as $answer)
-                                <div class="form-check custom-radio">
-                                    <input class="form-check-input" type="radio" name="responses[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}" required>
-                                    <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                        {{ $answer->answer }}
-                                    </label>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="d-flex flex-row-reverse">
-                <button type="submit" class="btn btn-dark">Submit</button>
-            </div>
-        </form>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('quiz-form');
-
-            form.reset(); // Reset form to ensure answers are cleared on refresh
-
-            // Attach event listener to labels to toggle radio buttons
-            form.querySelectorAll('.form-check-label').forEach(label => {
-                label.addEventListener('click', function () {
-                    const radioId = this.getAttribute('for');
-                    document.getElementById(radioId).checked = true;
-                });
-            });
-
-            // Warn user before leaving the page
-            const unloadEventHandler = function (e) {
-                const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave?';
-                e.returnValue = confirmationMessage; // For most browsers
-                return confirmationMessage; // For some older browsers
-            };
-
-            window.addEventListener('beforeunload', unloadEventHandler);
-
-            // Confirmation dialog on form submit
-            form.addEventListener('submit', function (e) {
-                const confirmation = confirm('Are you sure you want to submit your answers?');
-                if (!confirmation) {
-                    e.preventDefault();
-                    return;
-                }
-
-                // Temporarily disable the beforeunload event listener during form submission
-                window.removeEventListener('beforeunload', unloadEventHandler);
-            });
-        });
-    </script>
+</section>
 @endsection

@@ -18,7 +18,7 @@ class QuizController extends Controller
             $question->answers = $question->answers->shuffle();
         }
 
-        return view('quiz', [
+        return view('quiz.index', [
             'title' => 'Quiz',
             'active' => 'quiz',
             'questions' => $questions

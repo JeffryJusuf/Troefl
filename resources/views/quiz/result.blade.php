@@ -41,7 +41,7 @@
             </tbody>
         </table>
         <div class="d-flex flex-row-reverse">
-            <a href="/quiz" type="submit" class="btn btn-dark">Try Again</a>
+            <a href="/quiz/disclaimer" type="submit" class="btn btn-dark">Continue</a>
         </div>
     </div>
     

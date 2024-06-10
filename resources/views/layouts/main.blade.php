@@ -43,7 +43,7 @@
             <div class="col-md-4">@yield('auth')</div>
         </div>
     @endif
-    @if ($title == 'Home')
+    @if ($title == 'Home' || $title == 'Disclaimer')
         <div class="d-flex text-bg-dark vh-100">
             <div class="position-fixed h-100" id="sidebar">
     @else

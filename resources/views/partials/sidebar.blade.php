@@ -15,7 +15,7 @@
             </a>
         </li>
         <li>
-            <a href="/quiz" class="nav-link text-light {{ $active === 'quiz' ? 'active' : '' }}">
+            <a href="/quiz/disclaimer" class="nav-link text-light {{ $active === 'quiz' ? 'active' : '' }}">
                 Quiz
             </a>
         </li>

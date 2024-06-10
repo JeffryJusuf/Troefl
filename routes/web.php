@@ -47,6 +47,13 @@ Route::get('/learning-material/tenses', function () {
     ]);
 });
 
+Route::get('/quiz/disclaimer', function () {
+    return view('quiz', [
+        'title' => 'Disclaimer',
+        'active' => 'quiz'
+    ]);
+});
+
 Route::get('/quiz', [QuizController::class, 'index'])->middleware('auth');
 Route::post('/quiz', [QuizController::class, 'submit'])->middleware('auth');
 Route::get('/quiz/result', [QuizController::class, 'result'])->middleware('auth');
