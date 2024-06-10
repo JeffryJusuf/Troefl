@@ -44,6 +44,7 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+        /** @var \App\Models\User $user **/
         $user = Auth::user();
 
         $rules = [
@@ -88,8 +89,6 @@ class ProfileController extends Controller
         }
 
         $user->save();
-        // $data = $request->validate($rules);
-        // User::where('id', $user->id)->update($data);
 
         return redirect('/profile')->with('success', 'Profile updated successfully.');
     }
