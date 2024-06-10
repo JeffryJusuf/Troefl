@@ -40,7 +40,7 @@
                         Don't have an account? <a href="/register" class="text-decoration-none">Register now.</a>
                     </p>
                     <p class="mt-5">
-                        <a href="/material" class="btn btn-lg btn-dark">
+                        <a href="/learning-material" class="btn btn-lg btn-dark">
                             <small class="fs-6">
                                 Learn the Basics
                             </small>
