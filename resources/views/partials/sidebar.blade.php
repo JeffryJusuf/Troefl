@@ -36,7 +36,7 @@
     </ul>
     <hr>
     @auth
-        <div class="dropdown ms-3">
+        <div class="dropdown mx-3">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 @if (auth()->user()->profile_picture)
@@ -44,7 +44,7 @@
                 @else
                     <img src="/img/troefl-profile-picture.png" alt="" width="35" height="35" class="rounded-circle me-2">
                 @endif
-                <strong>{{ auth()->user()->username }}</strong>
+                <strong class="text-wrap text-break">{{ auth()->user()->username }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item custom-dropdown-sidebar" href="/profile">Profile</a></li>
