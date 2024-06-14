@@ -10,7 +10,7 @@
             </p>
             @auth
                 <p class="mt-5">
-                    <a href="/quiz" class="btn btn-lg btn-secondary mx-1">
+                    <a href="/quiz" class="btn btn-lg btn-dark mx-1">
                         <small class="fs-6">
                             I understand
                         </small>
