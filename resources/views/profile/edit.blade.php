@@ -20,7 +20,7 @@
                     <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
                         name="username" value="{{ auth()->user()->username }}">
                     @error('username')
-                        <div class="invalid-tooltip">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
@@ -36,7 +36,7 @@
                     <input type="file" class="form-control @error('image') is-invalid @enderror" id="profile_picture" name="profile_picture" accept="image/*" onchange="previewImage()">
                     <small class="text-secondary">Make sure the ratio of the image is 1:1 or it will appear squished</small>
                     @error('profile_picture')
-                        <div class="invalid-tooltip">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
@@ -45,20 +45,20 @@
                         name="old_password">
                     <small class="text-secondary">Only required if you want to change your password</small>
                     @error('old_password')
-                        <div class="invalid-tooltip">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="New Password" id="password"
                         name="password">
                     @error('password')
-                        <div class="invalid-tooltip">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 {{-- <div class="mb-5">
                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm New Password" id="password_confirmation" name="password_confirmation">
                     @error('password_confirmation')
-                        <div class="invalid-tooltip">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div> --}}
                 <div class="d-flex flex-row-reverse">

@@ -47,36 +47,39 @@ class ProfileController extends Controller
         /** @var \App\Models\User $user **/
         $user = Auth::user();
 
+        // Define base validation rules
         $rules = [
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
-        if ($request->filled('username')) 
-        {
+        // Add conditional validation rules
+        if ($request->filled('username')) {
             $rules['username'] = 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:3|max:30|unique:users,username,' . $user->id;
         }
 
-        if ($request->filled('password')) 
-        {
+        if ($request->filled('password')) {
             $rules['old_password'] = 'required|string';
-            $rules['password'] = 'required|string|min:8|confirmed';
-
-            // Check if the old password matches
-            if (!Hash::check($request->input('old_password'), $user->password)) {
-                return back()->withErrors(['old_password' => 'The provided password does not match our records.']);
-            }
-
-            // Update the user's password
-            $user->password = Hash::make($request->input('password'));
+            $rules['password'] = 'required|string|min:8';
         }
 
-        if ($request->filled('username')) 
-        {
+        // Validate request
+        $validatedData = $request->validate($rules);
+
+        // Check if the old password matches if password change is requested
+        if ($request->filled('password') && !Hash::check($request->input('old_password'), $user->password)) {
+            return back()->withErrors(['old_password' => 'The provided password does not match our records.']);
+        }
+
+        // Update user details
+        if ($request->filled('username')) {
             $user->username = $request->input('username');
         }
 
-        if ($request->hasFile('profile_picture')) 
-        {
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
+
+        if ($request->hasFile('profile_picture')) {
             // Delete old profile picture if it exists
             if ($user->profile_picture) {
                 Storage::disk('public')->delete($user->profile_picture);
