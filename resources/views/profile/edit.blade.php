@@ -55,12 +55,12 @@
                         <div class="invalid-tooltip">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-5">
+                {{-- <div class="mb-5">
                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm New Password" id="password_confirmation" name="password_confirmation">
                     @error('password_confirmation')
                         <div class="invalid-tooltip">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> --}}
                 <div class="d-flex flex-row-reverse">
                     <button type="submit" class="btn btn-dark">Update Profile</button>
                 </div>
