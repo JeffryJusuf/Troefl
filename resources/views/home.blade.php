@@ -15,7 +15,7 @@
                                 Learn the Basics
                             </small>
                         </a>
-                        <a href="/quiz" class="btn btn-lg btn-dark mx-1">
+                        <a href="/quiz/disclaimer" class="btn btn-lg btn-dark mx-1">
                             <small class="fs-6">
                                 Test Your English Skill
                             </small>
