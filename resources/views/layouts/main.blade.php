@@ -26,6 +26,14 @@
         trix-toolbar [data-trix-button-group='file-tools'] {
             display: none;
         }
+
+        .trix-button--icon-quote {
+            display: none;
+        }
+
+        .trix-button--icon-code {
+            display: none;
+        }
     </style>
     
     <script>
