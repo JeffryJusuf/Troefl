@@ -22,7 +22,7 @@
                                 </span>
                             </div>
                             <div>
-                                <label class="form-label">{!! $question->question !!}</label>
+                                <label class="form-label preserve-lines">{!! $question->question !!}</label>
                             </div>
                         </div>
                         <div class="ms-4">

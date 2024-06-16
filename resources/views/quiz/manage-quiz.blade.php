@@ -22,7 +22,7 @@
                     <a href="/manage-quiz/edit-question/{{ $question->id }}" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-dark-subtle" aria-current="true">
                         <div class="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <div class="fs-6 mb-0">{!! $question->question !!}</div>
+                                <div class="fs-6 mb-0 preserve-lines">{!! $question->question !!}</div>
                             </div>
                             <div>
                                 <form action="/manage-quiz/delete-question/{{ $question->id }}" method="POST">

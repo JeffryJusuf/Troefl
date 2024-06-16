@@ -20,7 +20,7 @@
                         <small class="mx-2 fw-bold">·</small>
                         <small class="opacity-50">{{ $reply->created_at->diffForHumans() }}</small>
                     </div>
-                    <article class="fs-6 lh-sm mb-3">{!! $reply->body !!}</article>
+                    <article class="fs-6 lh-sm mb-3 preserve-lines">{!! $reply->body !!}</article>
                 </div>
             </div>
         </div>

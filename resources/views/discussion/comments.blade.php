@@ -20,7 +20,7 @@
                         <small class="mx-2 fw-bold">·</small>
                         <small class="opacity-50">{{ $comment->created_at->diffForHumans() }}</small>
                     </div>
-                    <article class="fs-6 lh-sm mb-3">{!! $comment->body !!}</article>
+                    <article class="fs-6 lh-sm mb-3 preserve-lines">{!! $comment->body !!}</article>
                     @include('discussion.replies', ['replies' => $comment->replies, 'comment_id' => $comment->id])
                 </div>
             </div>
