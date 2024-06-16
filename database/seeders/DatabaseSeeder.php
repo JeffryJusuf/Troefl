@@ -22,18 +22,18 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         User::create([
             'username' => 'jeffry',
-            'email' => 'jeffry016@binus.ac.id',
+            'email' => 'jeffry.jusuf.24@gmail.com',
             'password' => bcrypt('password'),
             'is_admin' => '1',
         ]);
 
-        User::factory(5)->create();
+        // User::factory(5)->create();
 
-        Discussion::factory(50)->create();
+        // Discussion::factory(50)->create();
 
-        Comment::factory(100)->create();
+        // Comment::factory(100)->create();
 
-        Reply::factory(75)->create();
+        // Reply::factory(75)->create();
 
         // Generate questions with answers
         // Question::factory()
