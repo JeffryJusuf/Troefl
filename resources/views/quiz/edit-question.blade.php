@@ -22,11 +22,14 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <input type="text" class="form-control @error('correct_answer') is-invalid @enderror" id="correct_answer" name="correct_answer" placeholder="Correct Answer" value="{{ old('correct_answer', $question->answers->where('is_correct', true)->first()->answer) }}" required>
                 @error('correct_answer')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+            </div>
+            <div class="mb-3">
+                <label for="false-answers-container">Enter the false answer&#40;s&#41;:</label>
             </div>
             <div id="false-answers-container">
                 @php 
