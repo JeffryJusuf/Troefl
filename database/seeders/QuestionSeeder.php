@@ -129,7 +129,9 @@ class QuestionSeeder extends Seeder
         Question::create([
             'question' => 'Once upon a time, in a small village, there lived a young girl named Lily. Lily loved exploring the forest near her home. One day, while walking through the woods, she found a shiny, golden key lying on the ground. She picked it up and wondered what it could unlock. As she continued her journey, she stumbled upon an old, abandoned cottage. The door of the cottage had a small lock that looked like it could fit the key she had found.
 
-            Lily decided to try the key in the lock. To her surprise, it turned smoothly, and the door creaked open. Inside the cottage, she found a dusty old chest. She opened the chest and discovered it was filled with gold coins and precious jewels. Overwhelmed with excitement, Lily knew she had found a hidden treasure. She decided to share her discovery with the villagers, and together they used the treasure to improve their village, making it a better place for everyone.                                                                  What did Lily find in the forest?',
+            Lily decided to try the key in the lock. To her surprise, it turned smoothly, and the door creaked open. Inside the cottage, she found a dusty old chest. She opened the chest and discovered it was filled with gold coins and precious jewels. Overwhelmed with excitement, Lily knew she had found a hidden treasure. She decided to share her discovery with the villagers, and together they used the treasure to improve their village, making it a better place for everyone.                                                           
+            
+            What did Lily find in the forest?',
         ]);
 
         Question::create([
@@ -141,7 +143,9 @@ class QuestionSeeder extends Seeder
             
             Sarah: "Yes, after hiking, we had a picnic by the lake. It was so relaxing to sit by the water and enjoy some homemade sandwiches and fresh fruit."
             
-            John: "Nice! I’m glad you had a good time. I spent most of my weekend reading a new mystery novel. It was really gripping!"                                                                                                                                     What did Sarah do after hiking?',
+            John: "Nice! I’m glad you had a good time. I spent most of my weekend reading a new mystery novel. It was really gripping!"
+            
+            What did Sarah do after hiking?',
         ]);
     }
 }

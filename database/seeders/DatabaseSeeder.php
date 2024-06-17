@@ -27,6 +27,13 @@ class DatabaseSeeder extends Seeder
             'is_admin' => '1',
         ]);
 
+        User::create([
+            'username' => 'admin',
+            'email' => 'admin@troefl.com',
+            'password' => bcrypt('password'),
+            'is_admin' => '1',
+        ]);
+
         // User::factory(5)->create();
 
         // Discussion::factory(50)->create();
