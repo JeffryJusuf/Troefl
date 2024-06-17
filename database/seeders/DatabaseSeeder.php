@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         User::create([
             'username' => 'jeffry',
-            'email' => 'jeffry.jusuf.24@gmail.com',
+            'email' => 'jeffry@troefl.com',
             'password' => bcrypt('password'),
             'is_admin' => '1',
         ]);
