@@ -2,9 +2,9 @@
     <form method="post" action="{{ route('comments.storeComment') }}">
         @csrf
         <div class="form-group">
-            <textarea class="form-control @error('body') is-invalid @enderror custom-textarea" name="body" placeholder="Leave a Comment" required></textarea>
+            <textarea class="form-control @error('body') is-invalid @enderror custom-textarea" name="body" placeholder="Leave a Comment" required oninput="resizeTextarea(this)"></textarea>
             @error('body')
-                <div class="invalid-tooltip">
+                <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
@@ -17,3 +17,16 @@
         </div>
     </form>
 </div>
+
+<script>
+    function resizeTextarea(textarea) {
+        textarea.style.height = 'auto'; // Reset the height
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scroll height
+    }
+    
+    // Initialize the textarea height on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const textarea = document.getElementById('question');
+        resizeTextarea(textarea);
+    });
+</script>

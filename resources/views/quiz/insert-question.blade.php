@@ -15,7 +15,7 @@
         <form action="/manage-quiz/insert-question" method="POST">
             @csrf
             <div class="mb-3">
-                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required></textarea>
+                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Enter a new question" required oninput="resizeTextarea(this)"></textarea>
                 @error('question')
                     <div class="invalid-tooltip">
                         {{ $message }}
@@ -125,6 +125,17 @@
                     }
                 }
             });
+        });
+
+        function resizeTextarea(textarea) {
+            textarea.style.height = 'auto'; // Reset the height
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scroll height
+        }
+
+        // Initialize the textarea height on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('question');
+            resizeTextarea(textarea);
         });
     </script>
 @endsection

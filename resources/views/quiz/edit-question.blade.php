@@ -15,7 +15,7 @@
         <form action="/manage-quiz/edit-question/{{ $question->id }}" method="POST">
             @csrf
             <div class="mb-3">
-                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Question" required>
+                <textarea type="text" class="form-control @error('question') is-invalid @enderror custom-textarea" id="question" name="question" placeholder="Question" required oninput="resizeTextarea(this)">
                     {{ old('question', $question->question) }}
                 </textarea>
                 @error('question')
@@ -109,6 +109,17 @@
                     }
                 }
             });
+        });
+
+        function resizeTextarea(textarea) {
+            textarea.style.height = 'auto'; // Reset the height
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scroll height
+        }
+
+        // Initialize the textarea height on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('question');
+            resizeTextarea(textarea);
         });
     </script>
 @endsection

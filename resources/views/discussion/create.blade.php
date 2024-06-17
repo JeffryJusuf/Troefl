@@ -19,7 +19,7 @@
                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
                         id="title" placeholder="Enter a Title" required value="{{ old('title') }}">
                     @error('title')
-                        <div class="invalid-tooltip">
+                        <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
@@ -28,16 +28,16 @@
                     <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror d-none"
                         id="slug" placeholder="Slug" required value="{{ old('slug') }}">
                     @error('slug')
-                        <div class="invalid-tooltip">
+                        <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
                 <div class="mb-5">
                     <input id="body" type="hidden" name="body">
-                    <trix-editor input="body" placeholder="Say something..."></trix-editor>
+                    <trix-editor input="body" class="form-control @error('body') is-invalid @enderror" required placeholder="Say something..."></trix-editor>
                     @error('body')
-                        <div class="invalid-tooltip">
+                        <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
