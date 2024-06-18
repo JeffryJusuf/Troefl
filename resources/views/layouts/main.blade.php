@@ -50,13 +50,14 @@
         <div class="row justify-content-center align-items-center text-center text-light min-vh-100 bg-dark">
             <div class="col-md-4">@yield('auth')</div>
         </div>
-    @endif
-    <div class="d-flex">
-        <div class="position-fixed h-100 shadow-lg" id="sidebar">
-            @include('partials.sidebar')
+    @else
+        <div class="d-flex">
+            <div class="position-fixed h-100 shadow-lg" id="sidebar">
+                @include('partials.sidebar')
+            </div>
+            <div class="content flex-grow-1 py-3 px-5" style="margin-left: 280px">@yield('container')</div>
         </div>
-        <div class="content flex-grow-1 py-3 px-5" style="margin-left: 280px">@yield('container')</div>
-    </div>
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
